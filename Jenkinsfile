@@ -25,8 +25,10 @@ pipeline {
     stage('Deploy') {
       steps {
         script {
-          def image = docker.build("ultimatedockerfarm/echo-server:$BUILD_NUMBER")
-          image.push()
+          withDockerRegistry(credentialsId: 'docker-hub-push-credentials', toolName: 'docker') {
+            def image = docker.build("ultimatedockerfarm/echo-server:$BUILD_NUMBER")
+            image.push()
+          }
         }
       }
     }
