@@ -24,7 +24,10 @@ pipeline {
 
     stage('Deploy') {
       steps {
-        docker.build("ultimatedockerfarm/echo-server:$BUILD_NUMBER").push()
+        script {
+          def image = docker.build("ultimatedockerfarm/echo-server:$BUILD_NUMBER")
+          image.push()
+        }
       }
     }
   }
