@@ -24,9 +24,7 @@ pipeline {
 
     stage('Deploy') {
       steps {
-        // Building docker image.
-        sh "docker build -t echo-server:v1 ."
-        // Publishing docker image to docker hub.
+        docker.build("ultimatedockerfarm/echo-server:$BUILD_NUMBER").push()
       }
     }
   }
