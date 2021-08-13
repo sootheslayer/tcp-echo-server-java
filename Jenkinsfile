@@ -29,7 +29,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(
-                        credentialsId: 'c01a453f-fe69-47d4-ad63-81dfaa273d7c',
+                        credentialsId: 'docker-hub-credentials',
                         toolName: 'docker') {
                         
                         // Build and Push
