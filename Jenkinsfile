@@ -23,7 +23,9 @@ pipeline {
 
     stage('Deploy') {
       steps {
-        echo "Deploying artifact."
+        // Building docker image.
+        sh "docker build -t echo-server:v1 ."
+        // Publishing docker image to docker hub.
       }
     }
   }
