@@ -4,6 +4,7 @@ pipeline {
   tools {
     jdk 'openjdk-16'
     maven 'maven3'
+    dockerTool 'docker'
   }
 
 
